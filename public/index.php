@@ -3,13 +3,8 @@
 declare(strict_types=1);
 
 use Alura\Mvc\Controller\Error404Controller;
-use Alura\Mvc\Repository\VideoRepository;
 
 require_once __DIR__ . '/../vendor/autoload.php';
-
-$dbPath = __DIR__ . '/../banco.sqlite';
-$pdo = new PDO("sqlite:$dbPath");
-$videoRepository = new VideoRepository($pdo);
 
 $routes = require_once __DIR__ . '/../config/routes.php';
 /** @var \Psr\Container\ContainerInterface $diContainer */
