@@ -28,3 +28,5 @@
     </nav>
 
 </header>
+
+<h2 class="formulario__titulo erro">Erro</h2>
