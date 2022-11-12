@@ -9,6 +9,7 @@
         "ext-pdo": "*",
         "nyholm/psr7": "^1.5",
         "nyholm/psr7-server": "^1.0",
-        "psr/http-message": "^1.0"
+        "psr/http-message": "^1.0",
+        "ext-fileinfo": "*"
     }
 }

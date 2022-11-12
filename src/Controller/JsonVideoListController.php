@@ -6,6 +6,9 @@ namespace Alura\Mvc\Controller;
 
 use Alura\Mvc\Entity\Video;
 use Alura\Mvc\Repository\VideoRepository;
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class JsonVideoListController implements Controller
 {
@@ -13,9 +16,8 @@ class JsonVideoListController implements Controller
     {
     }
 
-    public function processaRequisicao(): void
+    public function processaRequisicao(ServerRequestInterface $request): ResponseInterface
     {
-        header('Content-Type: application/json');
         $videoList = array_map(function (Video $video): array {
             return [
                 'url' => $video->url,
@@ -23,6 +25,9 @@ class JsonVideoListController implements Controller
                 'file_path' => $video->getFilePath() === null ? null : '/img/uploads/' . $video->getFilePath(),
             ];
         }, $this->videoRepository->all());
-        echo json_encode($videoList);
+
+        return new Response(200, [
+            'Content-Type' => 'application/json'
+        ], json_encode($videoList));
     }
 }

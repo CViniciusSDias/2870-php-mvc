@@ -35,11 +35,10 @@ class DeleteVideoController implements Controller
             return new Response(302, [
                 'Location' => '/'
             ]);
-        } else {
-            return new Response(302, [
-                'Location' => '/'
-            ]);
         }
 
+        return new Response(302, [
+            'Location' => '/'
+        ]);
     }
 }
